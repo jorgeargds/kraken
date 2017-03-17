@@ -31,11 +31,19 @@ var HomeComponent = (function () {
         }, function (err) { return _this.logError(err); });
     };
     HomeComponent.prototype.getAllProducts = function () {
+        var _this = this;
+        this.http.get('http://localhost:8080/getAllProducts', { headers: this.getHeaders() })
+            .map(function (res) { return res.text(); })
+            .subscribe(function (data) { return _this.products = JSON.parse(data); }, function (err) { return _this.logError(err); });
     };
     HomeComponent.prototype.getHeaders = function () {
         var headers = new http_1.Headers();
         headers.append('Accept', 'application/json');
         return headers;
+    };
+    HomeComponent.prototype.extractData = function (res) {
+        var body = res.json();
+        return body.data || {};
     };
     HomeComponent.prototype.logError = function (err) {
         console.error('There was an error: ' + err);

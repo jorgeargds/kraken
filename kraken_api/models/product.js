@@ -5,6 +5,10 @@ var Schema = mongoose.Schema;
 // set up a mongoose model and pass it using module.exports
 module.exports = mongoose.model('Product', new Schema({ 
     barcode: String, 
+    price: String,
     name: String, 
     stock: String 
 }));
+
+
+ 

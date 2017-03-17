@@ -30,7 +30,7 @@ export class HomeComponent{
   //   "stock": "10",
   //   "__v": 0
   // }];
-  products :any[]
+  products : any[];
 
   constructor(private http: Http) {
     this.getAllProducts();
@@ -51,14 +51,13 @@ export class HomeComponent{
 
   }
   getAllProducts() {
-      // this.http.get('http://localhost:8080/getAllProducts', {headers : this.getHeaders()})
-      // .map(res => res.text())
-      // .subscribe(
-      // //  data => { this.products = data
-      // },
-      //   err => this.logError(err),
-      //   // () => console.log('User created')
-      // );
+      this.http.get('http://localhost:8080/getAllProducts', {headers : this.getHeaders()})
+      .map(res => res.text())
+      .subscribe(
+        data => this.products = JSON.parse(data),
+        err => this.logError(err),
+        // () => console.log('User created')
+      );
   }
 
   private getHeaders(){
@@ -66,6 +65,11 @@ export class HomeComponent{
     headers.append('Accept', 'application/json');
 
     return headers;
+  }
+
+  private extractData(res: Response) {
+    let body = res.json();
+    return body.data || { };
   }
 
   logError(err : String) {
