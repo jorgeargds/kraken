@@ -12,8 +12,16 @@ routes.get('/saveProduct', (req, res) => {
 
     console.log('User saved successfully');
     res.status(200).json({ message: 'User created!' });
-    //res.json({ success: true });
+    // res.json({ success: true });
   });
+});
+routes.get('/getAllProducts', (req ,res)=>{
+   Product.find(function(err, products) {
+            if (err)
+                res.send(err);
+
+            res.json(products);
+        });
 });
 
 module.exports = routes;

@@ -15,27 +15,56 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HomeComponent{
   private baseUrl: string = 'http://localhost:8080';
-  randomQuote = ''
-  constructor(private http: Http) { }
+  randomQuote = '';
+  // products = [{
+  //   "_id": "58cb5b1cb044710af4dba38f",
+  //   "barcode": "211231231",
+  //   "name": "Coca",
+  //   "stock": "10",
+  //   "__v": 0
+  // },
+  // {
+  //   "_id": "58cb5e74264ce9bab4817542",
+  //   "barcode": "211231231",
+  //   "name": "Coca",
+  //   "stock": "10",
+  //   "__v": 0
+  // }];
+  products :any[]
+
+  constructor(private http: Http) {
+    this.getAllProducts();
+  }
+
+
 
   saveProduct() {
     this.http.get('http://localhost:8080/saveProduct', {headers : this.getHeaders()})
     .map(res => res.text())
     .subscribe(
-      data => this.randomQuote = data,
+      data =>{ this.randomQuote = data
+      console.log(this.randomQuote)
+    },
       err => this.logError(err),
-      () => console.log('User created')
+      // () => console.log('User created')
     );
 
   }
+  getAllProducts() {
+      // this.http.get('http://localhost:8080/getAllProducts', {headers : this.getHeaders()})
+      // .map(res => res.text())
+      // .subscribe(
+      // //  data => { this.products = data
+      // },
+      //   err => this.logError(err),
+      //   // () => console.log('User created')
+      // );
+  }
+
   private getHeaders(){
     let headers = new Headers();
     headers.append('Accept', 'application/json');
-    //headers.append('Access-Control-Allow-Origin', 'http://localhost:8080')
-    // headers.append('Access-Control-Allow-Headers', 'Content-Type');
-    // headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // headers.append('Access-Control-Allow-Origin', '*');
-    // headers.append('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+
     return headers;
   }
 

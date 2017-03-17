@@ -19,12 +19,18 @@ var HomeComponent = (function () {
         this.http = http;
         this.baseUrl = 'http://localhost:8080';
         this.randomQuote = '';
+        this.getAllProducts();
     }
     HomeComponent.prototype.saveProduct = function () {
         var _this = this;
         this.http.get('http://localhost:8080/saveProduct', { headers: this.getHeaders() })
             .map(function (res) { return res.text(); })
-            .subscribe(function (data) { return _this.randomQuote = data; }, function (err) { return _this.logError(err); }, function () { return console.log('User created'); });
+            .subscribe(function (data) {
+            _this.randomQuote = data;
+            console.log(_this.randomQuote);
+        }, function (err) { return _this.logError(err); });
+    };
+    HomeComponent.prototype.getAllProducts = function () {
     };
     HomeComponent.prototype.getHeaders = function () {
         var headers = new http_1.Headers();
