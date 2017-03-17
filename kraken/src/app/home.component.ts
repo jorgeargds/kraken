@@ -31,9 +31,14 @@ export class HomeComponent{
   private getHeaders(){
     let headers = new Headers();
     headers.append('Accept', 'application/json');
+    //headers.append('Access-Control-Allow-Origin', 'http://localhost:8080')
+    // headers.append('Access-Control-Allow-Headers', 'Content-Type');
+    // headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    // headers.append('Access-Control-Allow-Origin', '*');
+    // headers.append('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
     return headers;
   }
-  
+
   logError(err : String) {
   console.error('There was an error: ' + err);
   }
