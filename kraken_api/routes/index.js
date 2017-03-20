@@ -2,11 +2,11 @@ const routes = require('express').Router();
 var Product = require('../models/product');
 
 routes.get('/saveProduct', (req, res) => {
-  var prod = new Product ({ 
-    barcode: '211231231', 
+  var prod = new Product ({
+    barcode: '211231231',
     price: '500',
     name: 'Coca',
-    stock: '10' 
+    stock: '10'
   });
   prod.save(function(err) {
     if (err) throw err;

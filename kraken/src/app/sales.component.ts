@@ -14,7 +14,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SalesComponent{
-  private baseUrl: string = 'http://localhost:8080';
+  private baseUrl: string = 'http://52.41.138.64:8080';
   randomQuote = '';
 
   constructor(private http: Http) { }
