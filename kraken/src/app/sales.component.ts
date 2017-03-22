@@ -13,32 +13,33 @@ import 'rxjs/add/operator/map';
 })
 
 @Injectable()
-export class SalesComponent{
+export class SalesComponent {
   private baseUrl: string = 'http://52.41.138.64:8080';
-  randomQuote = '';
+  randomQuote = 'is this a randomQuote?';
 
   constructor(private http: Http) { }
 
   saveProduct() {
-    this.http.get(`${this.baseUrl}/saveProduct`, {headers : this.getHeaders()})
-    .map(res => res.text())
-    .subscribe(
-      data =>{ this.randomQuote = data
-      console.log(this.randomQuote)
-    },
+    this.http.get(`${this.baseUrl}/saveProduct`, { headers: this.getHeaders() })
+      .map(res => res.text())
+      .subscribe(
+      data => {
+        this.randomQuote = data
+        console.log(this.randomQuote)
+      },
       err => this.logError(err),
       // () => console.log('User created')
     );
 
   }
-  private getHeaders(){
+  private getHeaders() {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
 
     return headers;
   }
 
-  logError(err : String) {
-  console.error('There was an error: ' + err);
+  logError(err: String) {
+    console.error('There was an error: ' + err);
   }
 };

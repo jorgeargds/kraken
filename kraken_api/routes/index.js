@@ -10,19 +10,15 @@ routes.get('/saveProduct', (req, res) => {
   });
   prod.save(function(err) {
     if (err) throw err;
-
     console.log('Product saved successfully');
     res.status(200).json({ message: 'Product created!' });
-    // res.json({ success: true });
   });
 });
 routes.get('/getAllProducts', (req ,res)=>{
    Product.find(function(err, products) {
             if (err)
                 res.send(err);
-
             res.json(products);
         });
 });
-
 module.exports = routes;
