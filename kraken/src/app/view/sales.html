@@ -1,5 +1,48 @@
-<div>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-<button (click)="saveProduct()" class="btn btn-info">Save product</button>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Código de producto</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Código">
+  </div>
+</form>
+
+<!-- Separador -->
+<div style = "margin: 20px"></div>
+<h3>Productos</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Total</th>
+      <th>Cantidad</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Coca Cola</td>
+      <td>6000</td>
+      <td>
+        <button style = " border-radius: 50%;" type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+        5
+        <button style = " border-radius: 50%;" type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </td>
+
+      <td>
+        <button type="button" class="btn btn-danger">
+          <span class="glyphicon glyphicon-trash"></span> Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="button" class="btn btn-primary">
+  <span class="glyphicon glyphicon-floppy-save"></span> Guardar compra
+</button>
+
+<!-- <button (click)="saveProduct()" class="btn btn-info">Save product</button> -->

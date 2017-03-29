@@ -14,7 +14,7 @@ var http_1 = require("@angular/http");
 var InventoryComponent = (function () {
     function InventoryComponent(http) {
         this.http = http;
-        this.baseUrl = 'http://52.41.138.64:8080';
+        this.baseUrl = 'http://localhost:8080';
         this.getAllProducts();
     }
     InventoryComponent.prototype.getAllProducts = function () {

@@ -17,7 +17,7 @@ require("rxjs/add/operator/map");
 var SalesComponent = (function () {
     function SalesComponent(http) {
         this.http = http;
-        this.baseUrl = 'http://52.41.138.64:8080';
+        this.baseUrl = 'http://localhost:8080';
         this.randomQuote = 'is this a randomQuote?';
     }
     SalesComponent.prototype.saveProduct = function () {
